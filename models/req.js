@@ -7,7 +7,7 @@ const reqSchema = new Schema({
 
     category: {
         type: String,
-        enum: ['Painting', 'Mason', 'Plumbing', 'Carpentary', 'Electrician', 'Labour Services', 'House']
+        enum: ['Painting', 'Mason', 'Plumbing', 'Carpentary', 'Electrician', 'Labour Services', 'Housekeeping','Pest Control']
     },
     deatil: String,
     client: {type: Schema.Types.ObjectId, ref:'Client'},

@@ -13,7 +13,7 @@ const checkWorker = (req, res, next) => {
           next()
         }
         else {
-          res.redirect('/login')
+          res.redirect('/worker/login')
         }
       }
       catch (err) {
@@ -21,7 +21,7 @@ const checkWorker = (req, res, next) => {
       }
     });
   } else {
-    res.redirect('/login')
+    res.redirect('/worker/login')
   }
 };
 
@@ -35,7 +35,7 @@ const checkClient = (req, res, next) => {
           next()
         }
         else {
-          res.redirect('/login2')
+          res.redirect('/client/login')
         }
       }
       catch (err) {
@@ -43,7 +43,7 @@ const checkClient = (req, res, next) => {
       }
     });
   } else {
-    res.redirect('/login2')
+    res.redirect('/client/login')
   }
 };
 

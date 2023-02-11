@@ -31,7 +31,7 @@ const workerSchema = new Schema({
   workcount : Number,
   workexp : {
     type : [String],
-    enum : ['Painting', 'Mason', 'Plumbing', 'Carpentary', 'Electrician', 'Labour Services', 'House']
+    enum : ['Painting', 'Mason', 'Plumbing', 'Carpentary', 'Electrician', 'Labour Services', 'Housekeeping' , 'Pest Control']
   }
 });
 
