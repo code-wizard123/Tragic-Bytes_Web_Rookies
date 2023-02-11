@@ -4,7 +4,6 @@ const workerRoutes = require('./routes/workerRoutes');
 const clientRoutes = require('./routes/clientRoutes');
 const adminRoutes = require('./routes/adminRoutes')
 const cookieParser = require('cookie-parser');
-const { checkClient, checkWorker, checkAdmin } = require('./middleware/authMiddleware');
 
 const app = express();
 
@@ -24,42 +23,10 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 
 app.use('/' ,workerRoutes);
 app.use('/', clientRoutes );
-app.use('/' , adminRoutes)
+//app.use('/' , adminRoutes)
 
 app.get('/', (req,res) =>{
   res.render('home')
-})
-
-app.get('/login' , (req,res) =>{
-  res.render('workerlogin')
-})
-
-app.get('/signup' , (req,res) =>{
-  res.render('workersignup')
-})
-
-app.get('/login2', (req,res) =>{
-  res.render('clientlogin')
-})
-
-app.get('/signup2' , (req,res) =>{
-  res.render('clientsignup')
-})
-
-app.get('/welcome', checkWorker, (req,res) =>{
-  res.render('protected')
-})
-
-app.get('/welcome2' , checkClient, (req,res) =>{
-  res.render('protected2')
-})
-
-app.get('/admin/login' , (req,res) =>{
-  res.render('admin-login')
-})
-
-app.get('/admin' , checkAdmin, (req,res) =>{
-  res.render('admin')
 })
 
 app.get('/logout' , (req,res) =>{
