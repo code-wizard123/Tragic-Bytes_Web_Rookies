@@ -25,9 +25,9 @@
     <div class="container">
       <div class="login-div">
         <h1>Worker Signup</h1>
-        <form class="needs-validation" novalidate method="post" action="">
+        <form class="needs-validation" novalidate method="post" action="/worker/signup">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="text" id="floatingPassword" placeholder="Name"
+            <input type="text" class="form-control" name="name" id="floatingPassword" placeholder="Name"
               required="true">
             <label for="floatingPassword">Name</label>
             <div class="valid-feedback">
@@ -58,17 +58,27 @@
             </div>
           </div>
           <div class="form-floating">
-            <input type="number" class="form-control" name="password" placeholder="Number" required="true">
+            <input type="number" class="form-control" name="number" placeholder="Number" required="true">
             <label for="floatingPassword">Number</label>
             <div class="valid-feedback">
               Looks good!
             </div>
             <div class="invalid-feedback">
-              Please Enter a Password.
+              Please Enter a Number.
+            </div>
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control" name="email" placeholder="Email" required="true">
+            <label for="floatingPassword">Email</label>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Please Enter a Email.
             </div>
           </div>
           <div id="select-tag">
-            <select class="form-select">
+            <select class="form-select" name="workexp">
               <option disabled selected>Select your Work Expertise</option>
               <option value="Painting">Painting</option>
               <option value="Mason">Mason</option>
@@ -81,14 +91,14 @@
             </select>
           </div>
           <div class="fileinput">
-            <input type="text" readonly id="linktext" class="hidden">
+            <input type="text" readonly id="linktext" name="filelink" class="hidden">
             <button type="button" class="btn btn-dark" onclick="fileupload()"> Upload ID</button>
           </div>
           <div class="button-div">
-            <button type="submit" id="login-btn" class="btn btn-dark"> Login </button>
+            <button type="submit" id="login-btn" class="btn btn-dark"> Signup </button>
         </form>
-        <form action="/signup2" method="get">
-          <button class="btn btn-dark"> Signup </button>
+        <form action="/worker/login" method="get">
+          <button>Login</button>
         </form>
       </div>
     </div>

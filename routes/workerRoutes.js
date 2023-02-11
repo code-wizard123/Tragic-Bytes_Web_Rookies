@@ -32,6 +32,10 @@ router.post('/worker/signup', async (req, res) => {
     const hashp = await bcrypt.hash(pass, salt);
     try {
         const newWorker = new Worker({
+            name : req.body.name,
+            photoid : req.body.filelink,
+            number : req.body.number,
+            workexp : req.body.workexp,
             username: req.body.username,
             email: req.body.email,
             password: hashp

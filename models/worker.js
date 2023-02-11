@@ -3,6 +3,10 @@ const { isEmail } = require('validator');
 const Schema = mongoose.Schema
 
 const workerSchema = new Schema({
+  name:{
+    type:String,
+    minlength:[6, 'Please enter a bigger name']
+  },
   username:{
     type: String,
     unique: true,
