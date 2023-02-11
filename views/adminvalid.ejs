@@ -39,7 +39,7 @@
             <tbody>
                 <td><%= i.name %></td>
                 <td><img src="<%= i.photoid %>" class="id-image"></td>
-                <td><form action="" method=""><button>Validate</button></form></td>
+                <td><form action="/admin/valid/worker/<%= i._id %>" method="post"><button>Validate</button></form></td>
             </tbody>
             <% } %>
         </table>

@@ -53,4 +53,12 @@ router.get('/admin/validate', checkAdmin , async(req,res) =>{
     })
 })
 
+router.post('/admin/valid/worker/:id', checkAdmin, async(req,res) =>{
+    const {id} = req.params
+    const rwk = await Worker.findById(id)
+    rwk.isValid = !rwk.isValid
+    await rwk.save()
+    res.redirect('/admin/validate')
+})
+
 module.exports = router;
