@@ -180,7 +180,7 @@ label {
   margin-left: 100px;
 }
 .out {
-  margin-left: 250px;
+  margin-left: 300px;
 }
 .subbtn {
   margin-left: 750px;
@@ -193,6 +193,7 @@ label {
   border-radius: 15px;
   margin-top: 20px;
 }
+
 .subbtn:hover {
   background-color: black;
   color: white;

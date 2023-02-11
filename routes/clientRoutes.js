@@ -49,6 +49,20 @@ router.get('/client/raiseissue' , checkClient, (req,res) =>{
     })
 })
 
+router.get('/client/nego', checkClient, (req, res) => {
+    const token = req.cookies.jwt
+    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
+        if(err)
+        {
+            res.send(err)
+        }
+        else{
+            let client = await Client.findById(decodedToken.id)
+            res.render('clientnego',{client})
+        }
+    })
+})
+
 router.post('/client/update' , checkClient, (req,res) =>{
     const token = req.cookies.jwt
     jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
