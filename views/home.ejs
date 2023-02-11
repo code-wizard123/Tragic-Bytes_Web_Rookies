@@ -1,16 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link href="./stylesheets/home.css" rel="stylesheet">
 </head>
+
 <body>
-  <h1>Welcome to home</h1>
-  <form action="/login" method="get">
-  <button>login 1</button>
-  <button formaction="/login2">login 2</button>
-</form>
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <header id="header">
+    <div class="d-flex flex-column">
+      <div class="profile">
+        <img src="../images/logo.jpeg" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light""><a href=" #">Work-Connect</a></h1>
+      </div>
+      <div class="sidenav">
+        <a href="/login2">Client Login</a><br>
+        <a href="/login">Worker Login</a><br>
+        <a href="#">Admin Login</a><br>
+      </div>
+    </div>
+  </header>
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1 id="site-name" data-value="WORK-CONNECT">WORK-CONNECT</h1>
+  </section>
+  <main id="main">
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About</h2>
+          <p>Work-Connect is a Web App that helps daily-wage workers to connect with various clients in their
+            locality.
+            through this web app the client can post an issue/request.This will be a type of a platform for
+            various
+            clients
+            who are in need of workers or vice versa.<br><br>
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="../images/profile-img.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Connecting Daily-wage Workers to Clients</h3>
+            <p>
+              In Work-Connect a Client can raise issues in many categories like Plumbing, Carpentry,
+              Technical, Electrical
+              and many more categories in order to find Workers to get theri job done.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <h4>Our Team</h4>
+        </div>
+        <div class="con">
+          <div class="row">
+            <div class="col-md-4 col-sm-6">
+              <div class="our-team">
+                <div class="team-image">
+                  <img src="../images/sid.jpeg">
+                  <p class="description">
+                    The one who Handles the entire Backend
+                  </p>
+                  <ul class="social">
+                    <li><a href="https://www.instagram.com/sid_0610/"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://github.com/0610sid"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/sid0610"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+                <div class="team-info">
+                  <h3 class="title">Siddhant Baheti</h3>
+                  <span class="post">CEO & FOUNDER</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="our-team">
+                <div class="team-image">
+                  <img src="../images/raunak.jpeg">
+                  <p class="description">
+                    The Technical Head who solves errors everytime and is ready to help everyone.
+                  </p>
+                  <ul class="social">
+                    <li><a href="https://www.instagram.com/raunak.it.is/"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://github.com/code-wizard123"><i class="fa fa-github"></i></a>
+                    </li>
+                    <li><a href="https://www.linkedin.com/in/raunaksinghkalsi/"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+                <div class="team-info">
+                  <h3 class="title">Raunak Singh Kalsi</h3>
+                  <span class="post">Technical Head</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <div class="our-team">
+                <div class="team-image">
+                  <img src="../images/sru.jpeg">
+                  <p class="description">
+                    The one handling the Designing part.
+                  </p>
+                  <ul class="social">
+                    <li><a href="https://www.instagram.com/srushti_023/"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://github.com/SrushtiGaidhane"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/srushti-gaidhane-927373264/"><i
+                          class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+                <div class="team-info">
+                  <h3 class="title">Srushti Gaidhane</h3>
+                  <span class="post">Designing Head</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+  <footer id="footer">
+    <div class="container">
+    </div>
+  </footer>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+  <script src="../javascripts/home.js"></script>
 </body>
+
 </html>
