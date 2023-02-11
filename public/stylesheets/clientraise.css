@@ -137,48 +137,17 @@ body {
   color: rgb(5, 0, 0);
   border-radius: 15px;
 }
-input[type="text"],
-select,
-textarea {
-  width: 200%;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  resize: vertical;
-  margin-left: 70px;
-  font-size: 22px;
-}
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
+
 .container {
   border-radius: 5px;
   background-color: transparent;
   padding: 20px;
   margin-top: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-  font-size: 30px;
-  color: black;
-}
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-  font-size: 20px;
-  color: black;
-}
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-  margin-left: 100px;
-}
+
 .out {
   margin-left: 300px;
 }
@@ -201,4 +170,48 @@ label {
 
 .hidden{
   display: none;
+}
+
+.req-div{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.desc-div{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.req-div input{
+  font-size: 30px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 30%;
+}
+
+.desc-name{
+  width: 30%;
+  text-align: right;
+}
+
+.desc-input{
+  width: 70%;
+}
+
+.container label{
+  margin-right: 25px;
+  color: black;
+  font-size: 30px;
+}
+
+#description{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 80%;
+  font-size: 30px;
 }
