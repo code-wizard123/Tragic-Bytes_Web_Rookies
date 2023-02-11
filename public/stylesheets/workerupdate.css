@@ -1,13 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
-
 body {
   font-family: "Open Sans", sans-serif;
-  color: #e8ebef;
-  margin: 0;
-  height: 100vh;
 }
-
 a {
   color: #149ddd;
   text-decoration: none;
@@ -90,23 +84,72 @@ h6 {
 .sidenav a:hover {
   color: #37b3ed;
 }
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
-.main{
-  margin-left: 350px;
-  height: 100%;
-  width: calc(100% - 350px);
-  padding: 100px;
-  color: black;
+
+.img {
+  height: 40px;
 }
 
-.workers{
+#sitename {
+  font-size: 7rem;
+}
+
+.hidden {
+  display: none;
+  width: 100px;
+}
+
+#logout {
+  border: none;
+  background: transparent;
+  color: red;
+  font-size: 30px;
+  padding: 16px 8px 6px 16px;
+}
+
+@media (min-width: 1200px) {
+  .main {
+    display: flex;
+    justify-content: center;
+    margin-left: 300px;
+    width: calc(100%- 300px);
+    padding: 100px;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-size: 20px;
+    font-family: 'Rubik';
+    width: 120px;
+    height: 45px;
+    position: absolute;
+    margin-top: 30px;
+    left: 50%;
+    transform: translateX(50%);
+  }
+}
+
+.form-label {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: 'Rubik';
+}
+
+.form-input-div {
+  width: 70%;
+}
+
+.main > h1 {
   width: 100%;
+  text-align: center;
+  font-family: 'Rubik';
+  font-weight: 700;
 }
 
-.worker{
-  padding-top: 30px;
-  padding-left: 60px;
-  height: 250px;
-  color: white;
-  background-color: black;
+.main > form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
