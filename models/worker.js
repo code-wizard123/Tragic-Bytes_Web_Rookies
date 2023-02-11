@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
-const bcrypt = require('bcrypt');
+const Schema = mongoose.Schema
 
-const workerSchema = new mongoose.Schema({
+const workerSchema = new Schema({
   username:{
     type: String,
     unique: true,
@@ -18,6 +18,20 @@ const workerSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please enter a password'],
     minlength: [6, 'Minimum password length is 6 characters'],
+  },
+  photoid : {
+    type : String,
+    required : [true, 'Please upload a photo']
+  },
+  number : {
+    type : Number,
+    min :[1000000000, 'Please enter a valid phone number'],
+    max:[9999999999, 'Please enter a valid phone number']
+  },
+  workcount : Number,
+  workexp : {
+    type : [String],
+    enum : ['Painting', 'Mason', 'Plumbing', 'Carpentary', 'Electrician', 'Labour Services', 'House']
   }
 });
 
