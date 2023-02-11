@@ -21,7 +21,7 @@ router.get('/client/signup', (req, res) => {
     res.render('clientsignup')
 })
 
-router.get('client/welcome', checkClient, (req, res) => {
+router.get('/client/welcome', checkClient, (req, res) => {
     res.render('protected2')
 })
 
@@ -50,10 +50,10 @@ router.post('/client/login', async (req, res) => {
         if (match) {
             const token = createToken(user._id)
             res.cookie('jwt', token, { maxage: 3 * 24 * 60 * 60 * 1000 })
-            res.redirect('/welcome2')
+            res.redirect('/client/welcome')
         }
         else {
-            res.redirect('/login2')
+            res.redirect('/client/login')
         }
     }
     else {
