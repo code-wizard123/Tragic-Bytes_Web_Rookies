@@ -10,17 +10,24 @@ const checkWorker = (req, res, next) => {
       try {
         let user = await Worker.findById(decodedToken.id);
         if (user) {
+          res.locals.worker = user
           next()
         }
         else {
+          res.cookie('jwt', '', { maxAge: 1 })
+          res.locals.worker = null
           res.redirect('/worker/login')
         }
       }
       catch (err) {
+        res.cookie('jwt', '', { maxAge: 1 })
+        res.locals.worker = null
         res.send(err)
       }
     });
   } else {
+    res.cookie('jwt', '', { maxAge: 1 })
+    res.locals.worker = null
     res.redirect('/worker/login')
   }
 };
@@ -32,17 +39,24 @@ const checkClient = (req, res, next) => {
       try {
         let user = await Client.findById(decodedToken.id);
         if (user) {
+          res.locals.client = user
           next()
         }
         else {
+          res.cookie('jwt', '', { maxAge: 1 })
+          res.locals.client = null
           res.redirect('/client/login')
         }
       }
       catch (err) {
+        res.cookie('jwt', '', { maxAge: 1 })
+        res.locals.client = null
         res.send(err)
       }
     });
   } else {
+    res.cookie('jwt', '', { maxAge: 1 })
+    res.locals.client = null
     res.redirect('/client/login')
   }
 };
@@ -54,17 +68,24 @@ const checkAdmin = (req, res, next) => {
       try {
         let user = await Admin.findById(decodedToken.id);
         if (user) {
+          res.locals.admin = user
           next()
         }
         else {
+          res.cookie('jwt', '', { maxAge: 1 })
+          res.locals.admin = null
           res.redirect('/admin/login')
         }
       }
       catch (err) {
+        res.cookie('jwt', '', { maxAge: 1 })
+        res.locals.admin = null
         res.send(err)
       }
     });
   } else {
+    res.cookie('jwt', '', { maxAge: 1 })
+    res.locals.admin = null
     res.redirect('/admin/login')
   }
 };
