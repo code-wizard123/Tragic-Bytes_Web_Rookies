@@ -30,7 +30,7 @@ router.post('/admin/login' , async(req,res) =>{
         if (match) {
             const token = createToken(user._id)
             res.cookie('jwt', token, { maxage: 3 * 24 * 60 * 60 * 1000 })
-            res.redirect('/admin/welcome')
+            res.redirect('/admin/validate')
         }
         else {
             res.redirect('/admin/login')
@@ -48,7 +48,7 @@ router.get('/admin/validate', checkAdmin , async(req,res) =>{
             res.send(err)
         }
         else{
-            res.send(data)
+            res.render('adminvalid', {data})
         }
     })
 })

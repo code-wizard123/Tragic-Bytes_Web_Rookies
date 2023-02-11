@@ -10,18 +10,40 @@
 </head>
 
 <body>
-    <table>
-        <thead>
-            <th>Worker Name</th>
-            <th>Photo ID</th>
-            <th>Validate</th>
-        </thead>
-        <tbody>
-            <td>Test</td>
-            <td><img src="" class="id-image"></td>
-            <td><form action="" method=""><button></button></form></td>
-        </tbody>
-    </table>
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+    <header id="header">
+        <div class="d-flex flex-column">
+            <div class="profile">
+                <h1 class="text-light"><a href=" #">Welcome, </a></h1>
+                <h3 class="text-light">
+                    Admin
+                </h3>
+            </div>
+            <div class="sidenav">
+                <a href="/admin/validate">Validate</a><br>
+                <a href="/admin/logs">Show Logs</a><br>
+                <form action="/logout" method="get">
+                    <button type="submit" id="logout"> Logout </button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <div class="main-content">
+        <table>
+            <thead>
+                <th>Worker Name</th>
+                <th>Photo ID</th>
+                <th>Validate</th>
+            </thead>
+            <% for(let i of data){ %>
+            <tbody>
+                <td><%= i.name %></td>
+                <td><img src="<%= i.photoid %>" class="id-image"></td>
+                <td><form action="" method=""><button>Validate</button></form></td>
+            </tbody>
+            <% } %>
+        </table>
+    </div>
 </body>
 
 </html>
