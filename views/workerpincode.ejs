@@ -12,7 +12,7 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link href="../stylesheets/pincode.css" rel="stylesheet">
+    <link href="../stylesheets/workerpincode.css" rel="stylesheet">
     <script
         src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet"
@@ -76,12 +76,18 @@
             .setLngLat([72.87750, 19.07583])
             .addTo(map);
 
+        let marker;
+
         const btn = document.getElementById('search').addEventListener('click', async (e) => {
+            if(marker){
+                marker.remove();
+            }
+            
             marker1.remove();
             e.preventDefault();
             const pincode = document.getElementById('pincode').value
             const areaselect = document.getElementById('areaselect')
-            await axios.get(`/search?pincode=${pincode}`)
+            await axios.get(`/worker/pin/search?pincode=${pincode}`)
                 .then(res => {
                     map.flyTo({
                         zoom: 12,
@@ -89,7 +95,7 @@
                         essential: true // this animation is considered essential with respect to prefers-reduced-motion
                     })
 
-                    const marker = new mapboxgl.Marker({ color: 'black' })
+                    marker = new mapboxgl.Marker({ color: 'black' })
                         .setLngLat(res.data[0])
                         .addTo(map);
 

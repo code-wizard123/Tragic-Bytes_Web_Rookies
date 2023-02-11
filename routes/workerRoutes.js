@@ -7,10 +7,12 @@ const bcrypt = require('bcrypt')
 const Worker = require('../models/worker')
 const router = Router();
 
-// const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
-// const { default: axios } = require('axios');
-// const mapBoxToken = 'pk.eyJ1IjoicmF1bmFrc2luZ2hrYWxzaSIsImEiOiJjbGUwM29ieW8xN3ZmM25waHNkY2tyczg5In0.QPrLTtGvWJjJCY8SPkX0JA';
-// const geocoder = mbxGeocoding({ accessToken: mapBoxToken })
+const Pin = require('../models/pincodes')
+
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+const { default: axios } = require('axios');
+const mapBoxToken = 'pk.eyJ1IjoicmF1bmFrc2luZ2hrYWxzaSIsImEiOiJjbGUwM29ieW8xN3ZmM25waHNkY2tyczg5In0.QPrLTtGvWJjJCY8SPkX0JA';
+const geocoder = mbxGeocoding({ accessToken: mapBoxToken })
 
 const createToken = (id) => {
     return jwt.sign({ id }, 'apna secret', {
@@ -26,8 +28,8 @@ router.get('/worker/signup', (req, res) => {
     res.render('workersignup')
 })
 
-router.get('/worker/welcome', checkWorker, (req, res) => {
-    res.render('protected')
+router.get('/worker/pincode', checkWorker, (req, res) => {
+    res.render('workerpincode')
 })
 
 router.post('/worker/signup', async (req, res) => {
@@ -53,23 +55,22 @@ router.post('/worker/signup', async (req, res) => {
     }
 })
 
-// router.get('/search', async (req, res) => {
-//     const query = req.query;
-//     const area = await Pin.findOne({ pincode: query.pincode })
-//     if(area){
-//         const geodata = await geocoder.forwardGeocode({
-//             query: `${area.region},Mumbai`,
-//             limit: 1
-//         }).send()
-//         const a = geodata.body.features
-//         const data = [a[0].geometry.coordinates, area.region]
-//         req.session.pincode = area.pincode;
-//         res.send(data)
-//     }
-//     else{
-//         res.redirect('/donate')
-//     }    
-// })
+router.get('/worker/pin/search', async (req, res) => {
+    const query = req.query;
+    const area = await Pin.findOne({ pincode: query.pincode })
+    if(area){
+        const geodata = await geocoder.forwardGeocode({
+            query: `${area.region},Mumbai`,
+            limit: 1
+        }).send()
+        const a = geodata.body.features
+        const data = [a[0].geometry.coordinates, area.region]
+        res.send(data)
+    }
+    else{
+        res.redirect('/worker/pincode')
+    }    
+})
 
 router.post('/worker/login', async (req, res) => {
     const user = await Worker.findOne({ username: req.body.username })
@@ -78,7 +79,7 @@ router.post('/worker/login', async (req, res) => {
         if (match) {
             const token = createToken(user._id)
             res.cookie('jwt', token, { maxage: 3 * 24 * 60 * 60 * 1000 })
-            res.redirect('/worker/welcome')
+            res.redirect('/worker/pincode')
         }
         else {
             res.redirect('/worker/login')
