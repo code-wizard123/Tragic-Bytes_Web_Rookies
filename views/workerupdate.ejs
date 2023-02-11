@@ -19,7 +19,7 @@
             <div class="profile">
                 <h1 class="text-light"><a href=" #">Welcome, </a></h1>
                 <h3 class="text-light">
-                    <%= client.cname %>
+                    <%= worker.name %>
                 </h3>
             </div>
             <div class="sidenav">
@@ -35,13 +35,13 @@
     <div class="main">
         <h1> Update Your Details:</h1>
         <div class="form-input-div">
-            <form action="/client/update" method="post">
+            <form action="/worker/update" method="post">
                 <label for="wname" class="form-label">Name</label>
-                <input class="form-control" type="text" name="wname" value="<%= worker.wname %>">
+                <input class="form-control" type="text" name="name" value="<%= worker.name %>">
                 <label for="wname" class="form-label">Email</label>
-                <input class="form-control" type="email" name="wemail" value="<%= worker.wemail %>">
+                <input class="form-control" type="email" name="email" value="<%= worker.email %>">
                 <label for="wname" class="form-label">Number</label>
-                <input class="form-control" type="number" name="wnumber" value="<%= worker.wnumber %>">
+                <input class="form-control" type="number" name="number" value="<%= worker.number %>">
                 <button type="submit" class="btn btn-dark"> Submit </button>
             </form>
         </div>

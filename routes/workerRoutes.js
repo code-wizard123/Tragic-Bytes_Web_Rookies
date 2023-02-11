@@ -94,7 +94,7 @@ router.post('/worker/login', async (req, res) => {
     }
 })
 
-router.get('/client/update', checkWorker, (req, res) => {
+router.get('/worker/update', checkWorker, (req, res) => {
     const token = req.cookies.jwt
     jwt.verify(token, 'apna secret', async (err, decodedToken) => {
         if (err) {
@@ -103,6 +103,23 @@ router.get('/client/update', checkWorker, (req, res) => {
         else {
             let worker = await Worker.findById(decodedToken.id)
             res.render('workerupdate', { worker })
+        }
+    })
+})
+
+router.post('/worker/update', checkWorker, (req, res) => {
+    const token = req.cookies.jwt
+    jwt.verify(token, 'apna secret', async (err, decodedToken) => {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            const worker = await Worker.findById(decodedToken.id)
+            worker.name = req.body.name
+            worker.email = req.body.email
+            worker.number = req.body.number
+            await worker.save()
+            res.redirect('/worker/update')
         }
     })
 })
