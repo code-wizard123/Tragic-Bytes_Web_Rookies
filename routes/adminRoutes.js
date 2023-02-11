@@ -20,3 +20,5 @@ router.get('/admin/login', (req, res) => {
 router.get('/admin/welcome', checkAdmin, (req, res) => {
     res.render('admin')
 })
+
+module.exports = router;
