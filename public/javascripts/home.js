@@ -316,3 +316,15 @@ const firstcall = (event) => {
 }
 
 firstcall()
+
+const navtext = document.getElementById("nav-text")
+
+window.onscroll = function(){
+    if(document.documentElement.scrollTop > 700)
+    {
+        navtext.classList.remove("hidden")
+    }
+    else{
+        navtext.classList.add("hidden")
+    }
+}

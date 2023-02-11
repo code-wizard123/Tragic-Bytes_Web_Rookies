@@ -135,7 +135,7 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../images/hero-bg.jpg") top center;
+  background: url("../images/homeback.jpg") top center;
   background-size: cover;
 }
 #hero:before {
@@ -369,7 +369,11 @@ section {
   height: 40px;
 }
 
-#sitename{
-    font-size: 7rem;
+#sitename {
+  font-size: 7rem;
 }
 
+.hidden{
+  display: none;
+  width: 100px;
+}
