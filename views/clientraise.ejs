@@ -20,11 +20,11 @@
         <div class="d-flex flex-column">
             <div class="profile">
                 <h1 class="text-light"><a href=" #">Welcome, </a></h1>
-                <h3 class="text-light">Client</h3>
+                <h3 class="text-light"><%= client.cname %></h3>
             </div>
             <div class="sidenav">
                 <a href="/client/raiseissue">Raise Issue</a><br>
-                <a href="#">View Issue</a><br>
+                <a href="/client/viewissue">View Issue</a><br>
                 <a href="/client/nego">Negotiate</a><br>
                 <a href="/client/update">Update Details</a><br>
                 <form action="/logout" method="get">
