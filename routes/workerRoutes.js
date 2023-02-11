@@ -94,4 +94,17 @@ router.post('/worker/login', async (req, res) => {
     }
 })
 
+router.get('/client/update', checkWorker, (req, res) => {
+    const token = req.cookies.jwt
+    jwt.verify(token, 'apna secret', async (err, decodedToken) => {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            let worker = await Worker.findById(decodedToken.id)
+            res.render('workerupdate', { worker })
+        }
+    })
+})
+
 module.exports = router;

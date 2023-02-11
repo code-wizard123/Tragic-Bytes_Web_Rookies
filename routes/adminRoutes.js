@@ -7,6 +7,8 @@ const bcrypt = require('bcrypt')
 const Admin = require('../models/admin')
 const router = Router();
 
+const Worker = require('../models/worker')
+
 const createToken = (id) => {
     return jwt.sign({ id }, 'apna secret', {
         expiresIn: 3 * 24 * 60 * 60
@@ -37,6 +39,18 @@ router.post('/admin/login' , async(req,res) =>{
     else {
         res.send("You are not authorized")
     }
+})
+
+router.get('/admin/validate', checkAdmin , async(req,res) =>{
+    Worker.find({isValid : false}, (err,data) =>{
+        if(err)
+        {
+            res.send(err)
+        }
+        else{
+            res.send(data)
+        }
+    })
 })
 
 module.exports = router;
