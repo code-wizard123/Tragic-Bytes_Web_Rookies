@@ -148,7 +148,8 @@ router.post('/client/raisereq', async(req,res) =>{
             const newreq = new Req({
                 category : req.body.reqwk,
                 deatil : req.body.description,
-                client : rclient
+                client : rclient,
+                pincode : rclient.cpincode
             })
             await newreq.save()
             res.redirect('/client/viewissue')
