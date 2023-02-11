@@ -33,7 +33,11 @@ router.post('/client/signup', async (req, res) => {
         const newClient = new Client({
             cusername: req.body.username,
             cemail: req.body.email,
-            cpassword: hashp
+            cpassword: hashp,
+            cname : req.body.name,
+            caddress : req.body.address,
+            cpincode : req.body.pincode,
+            cnumber : req.body.number,
         })
         await newClient.save()
         res.redirect('/')
