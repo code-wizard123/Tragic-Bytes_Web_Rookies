@@ -95,17 +95,26 @@ h6 {
   color: #fff;
   text-decoration: none;
 }
-#main {
-  margin-left: 350px;
-}
+
 @media (max-width: 1199px) {
   #header {
     left: -300px;
   }
-  #main {
+  .main {
     margin-left: 0;
+    margin-top: 100px;
   }
+
+  .btn{
+    position: relative;
+    width: 120px;
+    height: 45px;
+    left: 50%;
+    margin-top: 30px;
+    transform: translateX(-50%);
+    }
 }
+
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
@@ -132,4 +141,95 @@ h6 {
 }
 .mobile-nav-active #header {
   left: 0;
+}
+
+.sidenav {
+  margin-top: 10rem;
+  height: 100%;
+  width: 300px;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow: hidden;
+}
+#header::-webkit-scrollbar {
+  display: none;
+}
+.sidenav a {
+  padding: 16px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  color: #fff;
+  display: block;
+}
+.sidenav a:hover {
+  color: #37b3ed;
+}
+.img {
+  height: 40px;
+}
+
+#sitename {
+  font-size: 7rem;
+}
+
+.hidden {
+  display: none;
+  width: 100px;
+}
+
+#logout {
+  border: none;
+  background: transparent;
+  color: red;
+  font-size: 30px;
+  padding: 16px 8px 6px 16px;
+}
+
+@media (min-width: 1200px) {
+  .main {
+    display: flex;
+    justify-content: center;
+    margin-left: 300px;
+    width: calc(100%- 300px);
+    padding: 100px;
+    height: 100%;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-size: 20px;
+    font-family: 'Rubik';
+    width: 120px;
+    height: 45px;
+    position: absolute;
+    margin-top: 30px;
+    left: 50%;
+    transform: translateX(50%);
+  }
+}
+
+.form-label {
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: 'Rubik';
+}
+
+.form-input-div {
+  width: 70%;
+}
+
+.main > h1 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Rubik';
+  font-weight: 700;
+}
+
+.main > form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
