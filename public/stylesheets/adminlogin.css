@@ -24,7 +24,7 @@ body{
 .main-content > .container > .login-div{
     width: 400px;
     height: 500px;
-    background-color: rgba(0, 0, 0, 0.62);
+    background-color: rgba(0, 0, 0, 0.8);
     box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 3px 3px;
     padding: 2rem;
     border-radius: 10px;
@@ -48,8 +48,8 @@ form > input{
     margin-top: 20%;
     display: flex;
     width: 100%;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
 }
 
 button{
