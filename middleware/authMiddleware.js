@@ -57,7 +57,7 @@ const checkAdmin = (req, res, next) => {
           next()
         }
         else {
-          res.redirect('/admin')
+          res.redirect('/admin/login')
         }
       }
       catch (err) {
@@ -65,7 +65,7 @@ const checkAdmin = (req, res, next) => {
       }
     });
   } else {
-    res.redirect('/login3')
+    res.redirect('/admin/login')
   }
 };
 

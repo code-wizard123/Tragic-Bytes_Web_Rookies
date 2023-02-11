@@ -5,6 +5,10 @@ const Schema = mongoose.Schema
 const Req = require('./req') 
 
 const clientSchema = new Schema({
+  cname : {
+    type: String,
+    minlength:[6, 'Please enter a bigger name']
+  },
   cusername:{
     type: String,
     unique: true,
