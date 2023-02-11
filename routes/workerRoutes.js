@@ -45,7 +45,8 @@ router.post('/worker/signup', async (req, res) => {
             workexp : req.body.workexp,
             username: req.body.username,
             email: req.body.email,
-            password: hashp
+            password: hashp,
+            isValid : false
         })
         await newWorker.save()
         res.redirect('/')
@@ -74,7 +75,7 @@ router.get('/worker/pin/search', async (req, res) => {
 
 router.post('/worker/login', async (req, res) => {
     const user = await Worker.findOne({ username: req.body.username })
-    if (user) {
+    if (user.isValid) {
         const match = await bcrypt.compare(req.body.password, user.password)
         if (match) {
             const token = createToken(user._id)
@@ -85,7 +86,10 @@ router.post('/worker/login', async (req, res) => {
             res.redirect('/worker/login')
         }
     }
-    else {
+    else if(!user.isValid){
+        res.redirect('/notvalid')
+    }
+    else{
         res.send("Worker doesnt exist please signup")
     }
 })

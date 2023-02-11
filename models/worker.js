@@ -36,7 +36,8 @@ const workerSchema = new Schema({
   workexp : {
     type : [String],
     enum : ['Painting', 'Mason', 'Plumbing', 'Carpentary', 'Electrician', 'Labour Services', 'Housekeeping' , 'Pest Control']
-  }
+  },
+  isValid : Boolean
 });
 
 module.exports = mongoose.model('Worker', workerSchema);
