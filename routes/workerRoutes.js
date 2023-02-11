@@ -7,6 +7,11 @@ const bcrypt = require('bcrypt')
 const Worker = require('../models/worker')
 const router = Router();
 
+// const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+// const { default: axios } = require('axios');
+// const mapBoxToken = 'pk.eyJ1IjoicmF1bmFrc2luZ2hrYWxzaSIsImEiOiJjbGUwM29ieW8xN3ZmM25waHNkY2tyczg5In0.QPrLTtGvWJjJCY8SPkX0JA';
+// const geocoder = mbxGeocoding({ accessToken: mapBoxToken })
+
 const createToken = (id) => {
     return jwt.sign({ id }, 'apna secret', {
         expiresIn: 3 * 24 * 60 * 60
@@ -47,6 +52,24 @@ router.post('/worker/signup', async (req, res) => {
         res.send(err)
     }
 })
+
+// router.get('/search', async (req, res) => {
+//     const query = req.query;
+//     const area = await Pin.findOne({ pincode: query.pincode })
+//     if(area){
+//         const geodata = await geocoder.forwardGeocode({
+//             query: `${area.region},Mumbai`,
+//             limit: 1
+//         }).send()
+//         const a = geodata.body.features
+//         const data = [a[0].geometry.coordinates, area.region]
+//         req.session.pincode = area.pincode;
+//         res.send(data)
+//     }
+//     else{
+//         res.redirect('/donate')
+//     }    
+// })
 
 router.post('/worker/login', async (req, res) => {
     const user = await Worker.findOne({ username: req.body.username })
