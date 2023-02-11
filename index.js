@@ -24,7 +24,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 
 app.use('/' ,workerRoutes);
 app.use('/', clientRoutes );
-app.use('/' , adminRoutes)
+// app.use('/' , adminRoutes)
 
 app.get('/', (req,res) =>{
   res.render('home')
