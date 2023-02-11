@@ -35,6 +35,20 @@ router.get('/client/update', checkClient, (req, res) => {
     })
 })
 
+router.get('/client/raiseissue' , checkClient, (req,res) =>{
+    const token = req.cookies.jwt
+    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
+        if(err)
+        {
+            res.send(err)
+        }
+        else{
+            let client = await Client.findById(decodedToken.id)
+            res.render('clientraise',{client})
+        }
+    })
+})
+
 router.post('/client/update' , checkClient, (req,res) =>{
     const token = req.cookies.jwt
     jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
@@ -82,7 +96,7 @@ router.post('/client/login', async (req, res) => {
         if (match) {
             const token = createToken(user._id)
             res.cookie('jwt', token, { maxage: 3 * 24 * 60 * 60 * 1000 })
-            res.redirect('/client/update')
+            res.redirect('/client/raiseissue')
         }
         else {
             res.redirect('/client/login')
