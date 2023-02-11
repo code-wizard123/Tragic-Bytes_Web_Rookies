@@ -29,19 +29,19 @@ app.get('/', (req,res) =>{
 })
 
 app.get('/login' , (req,res) =>{
-  res.render('login')
+  res.render('workerlogin')
 })
 
 app.get('/signup' , (req,res) =>{
-  res.render('signup')
+  res.render('workersignup')
 })
 
 app.get('/login2', (req,res) =>{
-  res.render('login2')
+  res.render('clientlogin')
 })
 
 app.get('/signup2' , (req,res) =>{
-  res.render('signup2')
+  res.render('clientsignup')
 })
 
 app.get('/welcome', checkWorker, (req,res) =>{
@@ -62,5 +62,5 @@ app.use((req, res) => {
 });
 
 app.listen(6100 , () =>{
-  console.log("0610 ready to serve you master !!");
+  console.log("6100 ready to serve you master !!");
 })
