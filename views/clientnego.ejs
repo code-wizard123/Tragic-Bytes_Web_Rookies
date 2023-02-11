@@ -20,7 +20,9 @@
         <div class="d-flex flex-column">
             <div class="profile">
                 <h1 class="text-light"><a href=" #">Welcome, </a></h1>
-                <h3 class="text-light"><%= client.cname %></h3>
+                <h3 class="text-light">
+                    <%= client.cname %>
+                </h3>
             </div>
             <div class="sidenav">
                 <a href="/client/raiseissue">Raise Issue</a><br>
@@ -36,15 +38,23 @@
     <div class="main">
         <div class="workers">
             <div class="worker">
-                <h1>Worker: &nbsp &nbsp Worker_Name</h1><br>
-                <h3> Phone Number: 1234567890 </h3>
-                <div class="d-flex">
-                    <h5> Category: category name </h5>
-                    <h5> </h5>
+                <div class="left">
+                    <h1>Worker: &nbsp &nbsp Worker_Name</h1><br>
+                    <h4> Category: category name </h4><br>
+                    <h4> Details: full details</h4><br>
+                </div>
+                <div class="right">
+                    <button class="btn btn-light" onclick="connect(1, 1)"> Connect </button>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        const connect = (client_id, worker_id) => {
+            console.log(client_id)
+            console.log(worker_id)
+        }
+    </script>
 </body>
 
 </html>
