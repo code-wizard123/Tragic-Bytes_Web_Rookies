@@ -13,7 +13,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/workconnect')
 .catch(e => console.log(e));
 
 app.get('/', (req, res) => {
-    res.send('home page');
+    res.render('home');
 })
 
 app.get('/login', (req, res) => {
@@ -21,7 +21,7 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/signup', (req, res) => {
-    res.send('signup page');
+    res.render('signup');
 })
 
 app.post('/login', (req, res) => {
