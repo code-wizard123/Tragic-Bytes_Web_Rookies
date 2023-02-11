@@ -35,3 +35,37 @@ eventmaker(labourdiv,labourtxt)
 eventmaker(housediv,housetxt)
 eventmaker(pestdiv,pesttxt)
 
+const btns = document.getElementsByClassName('divbtn')
+const cval = document.getElementById('reqwk')
+
+btns[0].addEventListener('click' , () => {
+    cval.value = 'Painting'
+})
+
+btns[1].addEventListener('click' , () => {
+    cval.value = 'Mason'
+})
+
+btns[2].addEventListener('click' , () => {
+    cval.value = 'Plumbing'
+})
+
+btns[3].addEventListener('click' , () => {
+    cval.value = 'Carpentary'
+})
+
+btns[4].addEventListener('click' , () => {
+    cval.value = 'Electrician'
+})
+
+btns[5].addEventListener('click' , () => {
+    cval.value = 'Labour Services'
+})
+
+btns[6].addEventListener('click' , () => {
+    cval.value = 'Housekeeping'
+})
+
+btns[7].addEventListener('click' , () => {
+    cval.value = 'Pest Control'
+})

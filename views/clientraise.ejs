@@ -20,7 +20,9 @@
         <div class="d-flex flex-column">
             <div class="profile">
                 <h1 class="text-light"><a href=" #">Welcome, </a></h1>
-                <h3 class="text-light"><%= client.cname %></h3>
+                <h3 class="text-light">
+                    <%= client.cname %>
+                </h3>
             </div>
             <div class="sidenav">
                 <a href="/client/raiseissue">Raise Issue</a><br>
@@ -122,22 +124,25 @@
     </div>
     <div class="out">
         <div class="container">
-            <div class="req-div">
-                <b><label for="fname">Requested Worker:</label></b>
-                <input type="text" id="reqwk" name="reqwk">
-            </div>
-            <div class="desc-div">
-                <div class="desc-name">
-                    <b><label for="fname">Description:</label></b>
+            <form action="/client/raisereq" method="post">
+                <div class="req-div">
+                    <b><label for="fname">Requested Worker:</label></b>
+                    <input type="text" id="reqwk" name="reqwk" readonly>
                 </div>
-                <div class="desc-input">
-                    <input type="text" id="description" name="description"
-                        placeholder="Please enter the detailed description..">
+                <div class="desc-div">
+                    <div class="desc-name">
+                        <b><label for="fname">Description:</label></b>
+                    </div>
+                    <div class="desc-input">
+                        <input type="text" id="description" name="description"
+                            placeholder="Please enter the detailed description..">
+                    </div>
                 </div>
-            </div>
         </div>
+
         <button class="subbtn">Submit</button>
     </div>
+    </form>
     <script src="../javascripts/clientraise.js"></script>
 </body>
 

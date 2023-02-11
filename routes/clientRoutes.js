@@ -5,6 +5,7 @@ const { checkClient} = require('../middleware/authMiddleware');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const Client = require('../models/client')
+const Req = require('../models/req')
 const router = Router();
 
 const createToken = (id) => {
@@ -133,6 +134,26 @@ router.post('/client/login', async (req, res) => {
     else {
         res.send("Aap exist nhi karte")
     }
+})
+
+router.post('/client/raisereq', async(req,res) =>{
+    const token = req.cookies.jwt
+    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
+        if(err)
+        {
+            res.send(err)
+        }
+        else{
+            const rclient = await Client.findById(decodedToken.id)
+            const newreq = new Req({
+                category : req.body.reqwk,
+                deatil : req.body.description,
+                client : rclient
+            })
+            await newreq.save()
+            res.redirect('/client/viewissue')
+        }
+    })
 })
 
 module.exports = router;
