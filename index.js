@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const workerRoutes = require('./routes/workerRoutes');
-const clientRoutes = require('./routes/clientRoutes')
+const clientRoutes = require('./routes/clientRoutes');
+const adminRoutes = require('./routes/adminRoutes')
 const cookieParser = require('cookie-parser');
-const { checkClient, checkWorker } = require('./middleware/authMiddleware');
+const { checkClient, checkWorker, checkAdmin } = require('./middleware/authMiddleware');
 
 const app = express();
 
@@ -23,6 +24,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 
 app.use('/' ,workerRoutes);
 app.use('/', clientRoutes );
+app.use('/' , adminRoutes)
 
 app.get('/', (req,res) =>{
   res.render('home')
@@ -50,6 +52,14 @@ app.get('/welcome', checkWorker, (req,res) =>{
 
 app.get('/welcome2' , checkClient, (req,res) =>{
   res.render('protected2')
+})
+
+app.get('/admin/login' , (req,res) =>{
+  res.render('admin-login')
+})
+
+app.get('/admin' , checkAdmin, (req,res) =>{
+  res.render('admin')
 })
 
 app.get('/logout' , (req,res) =>{
