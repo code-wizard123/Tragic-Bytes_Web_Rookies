@@ -25,9 +25,9 @@
     <div class="container">
       <div class="login-div">
         <h1>Client Signup</h1>
-        <form class="needs-validation" novalidate method="post" action="">
+        <form class="needs-validation" novalidate method="post" action="/client/signup">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="text" id="floatingPassword" placeholder="Name"
+            <input type="text" class="form-control" name="name" id="floatingPassword" placeholder="Name"
               required="true">
             <label for="floatingPassword">Name</label>
             <div class="valid-feedback">
@@ -58,7 +58,7 @@
             </div>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" class="form-control" name="password" placeholder="Number" required="true">
+            <input type="number" class="form-control" name="number" placeholder="Number" required="true">
             <label for="floatingPassword">Number</label>
             <div class="valid-feedback">
               Looks good!
@@ -78,7 +78,7 @@
             </div>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="password" placeholder="address" required="true">
+            <input type="text" class="form-control" name="address" placeholder="address" required="true">
             <label for="floatingPassword">Address</label>
             <div class="valid-feedback">
               Looks good!
@@ -88,15 +88,14 @@
             </div>
           </div>
           <div class="button-div">
-            <button type="submit" id="login-btn" class="btn btn-dark"> Login </button>
+            <button type="submit" id="login-btn" class="btn btn-dark"> Signup </button>
         </form>
-        <form action="/signup2" method="get">
-          <button class="btn btn-dark"> Signup </button>
+        <form action="/client/login" method="get">
+          <button class="btn btn-dark"> Login </button>
         </form>
       </div>
     </div>
   </div>
-  <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
   <script>
     (() => {
       'use strict'
