@@ -4,7 +4,7 @@ const workerRoutes = require('./routes/workerRoutes');
 const clientRoutes = require('./routes/clientRoutes');
 const adminRoutes = require('./routes/adminRoutes')
 const cookieParser = require('cookie-parser');
-
+const path = require('path')
 const app = express();
 
 // middleware
@@ -14,6 +14,8 @@ app.use(cookieParser());
 
 // view engine
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'))
+app.use(express.static('public'));
 
 // database connection
 const dbURI = 'mongodb://127.0.0.1:27017/test06';
