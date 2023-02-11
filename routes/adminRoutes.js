@@ -8,6 +8,7 @@ const Admin = require('../models/admin')
 const router = Router();
 
 const Worker = require('../models/worker')
+const Req = require('../models/req')
 
 const createToken = (id) => {
     return jwt.sign({ id }, 'apna secret', {
@@ -49,6 +50,18 @@ router.get('/admin/validate', checkAdmin , async(req,res) =>{
         }
         else{
             res.render('adminvalid', {data})
+        }
+    })
+})
+
+router.get('/admin/logs' , checkAdmin , async(req,res) =>{
+    Req.find({isMatched: true},(err,data) =>{
+        if(err)
+        {
+            res.send(err)
+        }
+        else{
+            res.render('adminlogs',{data})
         }
     })
 })

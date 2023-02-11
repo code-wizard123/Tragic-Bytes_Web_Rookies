@@ -150,7 +150,8 @@ router.post('/client/raisereq', async (req, res) => {
                 category: req.body.reqwk,
                 deatil: req.body.description,
                 client: rclient,
-                pincode: rclient.cpincode
+                pincode: rclient.cpincode,
+                isMatched : false
             })
             await newreq.save()
             res.redirect('/client/viewissue')
