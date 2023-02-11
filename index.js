@@ -29,6 +29,10 @@ app.post('/login', (req, res) => {
     res.send(data);
 })
 
+app.get('/pincode', (req, res) => {
+    res.render('pincode');
+})
+
 app.all('*', (req,res)=>{
     res.status(404).send('notfound')
 })
