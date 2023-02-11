@@ -22,7 +22,35 @@ router.get('/client/signup', (req, res) => {
 })
 
 router.get('/client/update', checkClient, (req, res) => {
-    res.render('clientupdate')
+    const token = req.cookies.jwt
+    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
+        if(err)
+        {
+            res.send(err)
+        }
+        else{
+            let client = await Client.findById(decodedToken.id)
+            res.render('clientupdate',{client})
+        }
+    })
+})
+
+router.post('/client/update' , checkClient, (req,res) =>{
+    const token = req.cookies.jwt
+    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
+        if(err)
+        {
+            res.send(err)
+        }
+        else{
+            const client = await Client.findById(decodedToken.id)
+            client.cname = req.body.cname
+            client.cemail = req.body.cemail
+            client.cnumber = req.body.cnumber
+            await client.save()
+            res.redirect('/client/update')
+        }
+    })
 })
 
 router.post('/client/signup', async (req, res) => {
