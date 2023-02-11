@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const { checkClient} = require('../middleware/authMiddleware');
+const { checkClient } = require('../middleware/authMiddleware');
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
@@ -24,68 +24,70 @@ router.get('/client/signup', (req, res) => {
 
 router.get('/client/update', checkClient, (req, res) => {
     const token = req.cookies.jwt
-    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
-        if(err)
-        {
+    jwt.verify(token, 'apna secret', async (err, decodedToken) => {
+        if (err) {
             res.send(err)
         }
-        else{
+        else {
             let client = await Client.findById(decodedToken.id)
-            res.render('clientupdate',{client})
+            res.render('clientupdate', { client })
         }
     })
 })
 
-router.get('/client/raiseissue' , checkClient, (req,res) =>{
+router.get('/client/raiseissue', checkClient, (req, res) => {
     const token = req.cookies.jwt
-    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
-        if(err)
-        {
+    jwt.verify(token, 'apna secret', async (err, decodedToken) => {
+        if (err) {
             res.send(err)
         }
-        else{
+        else {
             let client = await Client.findById(decodedToken.id)
-            res.render('clientraise',{client})
+            res.render('clientraise', { client })
         }
     })
 })
 
 router.get('/client/nego', checkClient, (req, res) => {
     const token = req.cookies.jwt
-    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
-        if(err)
-        {
+    jwt.verify(token, 'apna secret', async (err, decodedToken) => {
+        if (err) {
             res.send(err)
         }
-        else{
+        else {
             let client = await Client.findById(decodedToken.id)
-            res.render('clientnego',{client})
+            res.render('clientnego', { client })
         }
     })
 })
 
 router.get('/client/viewissue', checkClient, (req, res) => {
     const token = req.cookies.jwt
-    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
-        if(err)
-        {
+    jwt.verify(token, 'apna secret', async (err, decodedToken) => {
+        if (err) {
             res.send(err)
         }
-        else{
+        else {
             let client = await Client.findById(decodedToken.id)
-            res.render('clientviewissue',{client})
+            Req.find({ client: decodedToken.id}, async(err, data) => {
+                if(err) {
+                    res.send(err)
+                }
+                else{
+                    res.render('clientviewissue', {data, client})
+                }
+            })
         }
     })
 })
 
-router.post('/client/update' , checkClient, (req,res) =>{
+router.post('/client/update', checkClient, (req, res) => {
     const token = req.cookies.jwt
-    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
-        if(err)
-        {
+    jwt.verify(token, 'apna secret', async (err, decodedToken) => {
+        if (err) {
             res.send(err)
         }
-        else{
+        else {
             const client = await Client.findById(decodedToken.id)
             client.cname = req.body.cname
             client.cemail = req.body.cemail
@@ -105,10 +107,10 @@ router.post('/client/signup', async (req, res) => {
             cusername: req.body.username,
             cemail: req.body.email,
             cpassword: hashp,
-            cname : req.body.name,
-            caddress : req.body.address,
-            cpincode : req.body.pincode,
-            cnumber : req.body.number,
+            cname: req.body.name,
+            caddress: req.body.address,
+            cpincode: req.body.pincode,
+            cnumber: req.body.number,
         })
         await newClient.save()
         res.redirect('/')
@@ -136,20 +138,19 @@ router.post('/client/login', async (req, res) => {
     }
 })
 
-router.post('/client/raisereq', async(req,res) =>{
+router.post('/client/raisereq', async (req, res) => {
     const token = req.cookies.jwt
-    jwt.verify(token, 'apna secret', async(err,decodedToken) =>{
-        if(err)
-        {
+    jwt.verify(token, 'apna secret', async (err, decodedToken) => {
+        if (err) {
             res.send(err)
         }
-        else{
+        else {
             const rclient = await Client.findById(decodedToken.id)
             const newreq = new Req({
-                category : req.body.reqwk,
-                deatil : req.body.description,
-                client : rclient,
-                pincode : rclient.cpincode
+                category: req.body.reqwk,
+                deatil: req.body.description,
+                client: rclient,
+                pincode: rclient.cpincode
             })
             await newreq.save()
             res.redirect('/client/viewissue')

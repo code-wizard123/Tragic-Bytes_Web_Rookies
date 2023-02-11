@@ -31,6 +31,10 @@ app.get('/', (req,res) =>{
   res.render('home')
 })
 
+app.get('/notvalid', (req,res) =>{
+  res.render('workervalid')
+})
+
 app.get('/logout' , (req,res) =>{
   res.cookie('jwt', '', { maxAge: 1 });
   res.redirect('/');

@@ -9,9 +9,12 @@ const checkWorker = (req, res, next) => {
     jwt.verify(token, 'apna secret', async (err, decodedToken) => {
       try {
         let user = await Worker.findById(decodedToken.id);
-        if (user) {
+        if (user.isValid) {
           res.locals.worker = user
           next()
+        }
+        else if(!user.isValid){
+          res.redirect('/notvalid')
         }
         else {
           res.cookie('jwt', '', { maxAge: 1 })
