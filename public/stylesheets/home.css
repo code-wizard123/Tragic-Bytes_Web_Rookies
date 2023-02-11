@@ -126,6 +126,7 @@ h6 {
   border-radius: 50px;
   cursor: pointer;
 }
+
 .mobile-nav-active {
   overflow: hidden;
 }
