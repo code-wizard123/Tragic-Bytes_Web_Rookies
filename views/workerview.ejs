@@ -30,11 +30,6 @@
             <div id="container">
                 <div class="product-details">
                     <div class="form-floating mb-3">
-                        <label for="floatingInput">Name:</label>
-                        <input type="text" class="form-control" name="name" id="floatingInput" placeholder="Name"
-                            value="<%= i.name %>" required><br><br>
-                    </div>
-                    <div class="form-floating mb-3">
                         <label for="floatingInput">Category:</label>
                         <input type="text" class="form-control" name="text" id="floatingInput" placeholder="Category"
                             value="<%= i.category %>" required><br><br>
@@ -44,10 +39,15 @@
                         <input type="text" class="form-control" name="details" id="floatingInput"
                             placeholder="Details" value="<%= i.deatil %>" required>
                     </div>
+                    <div class="form-floating mb-3">
+                        <label for="floatingInput">Price :</label>
+                        <input type="text" class="form-control" name="name" id="floatingInput" placeholder="Price"
+                            value="<%= i.price %>" required><br><br>
+                    </div>
                     <div class="control">
-                        <form>  
-                            <button class="btn">
-                                <span class="buy">Confirm</span>
+                        <form method="post" action="/worker/interested/<%= i._id %>">  
+                            <button class="btn" type="submit">
+                                <span class="buy">Intrested ?</span>
                             </button>
                         </form>
                     </div>

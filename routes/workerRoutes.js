@@ -159,11 +159,46 @@ router.get('/worker/viewissue', checkWorker, (req, res) => {
                     }
                 })
             }
-            console.log(filtered)
             res.render('workerview', {filtered})
         }
     })
 
+})
+
+router.get('/worker/selected/reqs',checkWorker, async(req,res) =>{
+    const token = req.cookies.jwt
+    jwt.verify(token, 'apna secret', async (err, decodedToken) => {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            const worker = await Worker.findById(decodedToken.id)
+            res.render('workerconfirm', {worker})
+        }
+    })
+})
+
+router.post('/worker/interested/:id',checkWorker, async(req,res) =>{
+    const { id } = req.params
+    const rreq = await Req.findById(id)
+    const token = req.cookies.jwt
+    jwt.verify(token, 'apna secret', async (err, decodedToken) => {
+        if (err) {
+            console.log("Error")
+            res.send(err)
+        }
+        else {
+            console.log(decodedToken.id)
+            const worker = await Worker.findById(decodedToken.id)
+            console.log(worker)
+            worker.intrestedreq.push(rreq)
+            rreq.intrestedworker.push(worker)
+            await worker.save()
+            await rreq.save()
+            res.redirect('/worker/selected/reqs')
+        }
+    })
+    
 })
 
 module.exports = router;

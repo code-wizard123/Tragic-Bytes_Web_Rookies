@@ -32,12 +32,12 @@ const workerSchema = new Schema({
     min :[1000000000, 'Please enter a valid phone number'],
     max:[9999999999, 'Please enter a valid phone number']
   },
-  workcount : Number,
   workexp : {
-    type : [String],
+    type : String,
     enum : ['Painting', 'Mason', 'Plumbing', 'Carpentary', 'Electrician', 'Labour Services', 'Housekeeping' , 'Pest Control']
   },
-  isValid : Boolean
+  isValid : Boolean,
+  intrestedreq :[{type: Schema.Types.ObjectId, ref:'Req'}]
 });
 
 module.exports = mongoose.model('Worker', workerSchema);
