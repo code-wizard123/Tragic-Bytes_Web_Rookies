@@ -166,4 +166,5 @@ input[type=text],input[type=number] {
 }
 .form-control{
     width: 310px;
+    font-size: 24px;
 }

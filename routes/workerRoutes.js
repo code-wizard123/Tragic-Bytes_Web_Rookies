@@ -143,22 +143,23 @@ router.get('/worker/viewissue', checkWorker, (req, res) => {
             res.send(err)
         }
         else {
-            const pin = decodedToken.id
+            const stringpin = decodedToken.id
+            const pin = parseInt(stringpin)
             const searchedpin = await Pin.findOne({ pincode: pin })
             const nearbys = searchedpin.nearby
-            nearbys.push(searchedpin)
-
+            nearbys.push(pin)
             let filtered = []
             for (i of nearbys) {
-                Req.find({ pincode: i }, async (err, data) => {
+                await Req.find({ pincode: i }, async (err, data) => {
                     if (err) {
                         res.send(err)
                     }
                     else {
-                        filtered = [...filtered, data]
+                        filtered = [...filtered, ...data]
                     }
                 })
             }
+            console.log(filtered)
             res.render('workerview', {filtered})
         }
     })
