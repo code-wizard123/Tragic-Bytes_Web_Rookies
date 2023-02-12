@@ -75,26 +75,26 @@ router.post('/admin/valid/worker/:id', checkAdmin, async(req,res) =>{
     res.redirect('/admin/validate')
 })
 
-router.post('/admin/allclient' , checkAdmin, async(req,res) =>{
+router.get('/admin/allclient' , checkAdmin, async(req,res) =>{
     Client.find({},(err,data) =>{
         if(err)
         {
             res.send(err)
         }
         else{
-            res.render('adminallclient',{data})
+            res.render('adminallclients',{data})
         }
     })
 })
 
-router.post('/admin/allworker', checkAdmin, async(req,res) =>{
+router.get('/admin/allworker', checkAdmin, async(req,res) =>{
     Worker.find({},(err,data) =>{
         if(err)
         {
             res.send(err)
         }
         else{
-            res.render('adminallworker',{data})
+            res.render('adminallworkers',{data})
         }
     })
 })
