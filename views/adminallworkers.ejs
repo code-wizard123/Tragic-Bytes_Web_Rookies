@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="../stylesheets/adminvalid.css" rel="stylesheet">
+    <link href="../stylesheets/adminallworkers.css" rel="stylesheet">
 </head>
-
 <body>
     <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
     <header id="header">
@@ -30,22 +27,27 @@
             </div>
         </div>
     </header>
-    <div class="main-content">
-        <table>
-            <thead>
-                <th>Worker Name</th>
-                <th>Photo ID</th>
-                <th>Validate</th>
-            </thead>
-            <% for(let i of data){ %>
-            <tbody>
-                <td><%= i.name %></td>
-                <td><img src="<%= i.photoid %>" class="id-image"></td>
-                <td><form action="/admin/valid/worker/<%= i._id %>" method="post"><button>Validate</button></form></td>
-            </tbody>
-            <% } %>
-        </table>
+    <div class="table">
+    <table>
+        <tr>
+          <th class="h">Sr No</th>
+          <th class="h">Worker</th>
+          <th class="h">Client</th>
+          <th class="h">Prize</th>
+        </tr>
+        <tr class="f">
+          <td class="h">2</td>
+          <td class="h">Alfreds Futterkiste</td>
+          <td class="h">Maria Anders</td>
+          <td class="h">10</td>
+        </tr>
+        <tr>
+          <td class="h">3</td>
+          <td class="h">Centro comercial Moctezuma</td>
+          <td class="h">Francisco Chang</td>
+          <td class="h">11</td>
+        </tr>
+      </table>
     </div>
 </body>
-
 </html>
