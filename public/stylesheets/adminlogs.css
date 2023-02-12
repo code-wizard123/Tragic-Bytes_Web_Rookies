@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #e8ebef;
+  margin: 0;
+  height: 100vh;
+}
+
+a {
+  color: #149ddd;
+  text-decoration: none;
+  margin-top: 20px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+#logout {
+  border: none;
+  background: transparent;
+  color: red;
+  font-size: 30px;
+  padding: 16px 8px 6px 16px;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  transition: all ease-in-out 0.5s;
+  z-index: 9997;
+  transition: all 0.5s;
+  padding: 0 15px;
+  background: #040b14;
+  overflow-y: auto;
+}
+#header .profile h1 {
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+  margin-top: 80px;
+}
+
+#header .profile h3 {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+  margin-top: 20px;
+}
+
+.sidenav {
+  margin-top: 10rem;
+  height: 100%;
+  width: 300px;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow: hidden;
+}
+#header::-webkit-scrollbar {
+  display: none;
+}
+.sidenav a {
+  padding: 16px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  color: #fff;
+  display: block;
+  /* margin-top: 100px; */
+}
+.sidenav a:hover {
+  color: #37b3ed;
+}
+.table{
+    margin-top: 50px;
+    font-size: 22px;
+    background-color: #000;
+    color: #fff;
+    width: 900px;
+    margin-left: 470px;
+    border-radius: 35px;
+    padding: 10px;
+}
+.h{
+    width: 500px;
+    text-align: center;  
+    height: 70px;
+}
