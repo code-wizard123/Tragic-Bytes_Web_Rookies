@@ -8,6 +8,7 @@ const Worker = require('../models/worker')
 const router = Router();
 
 const Pin = require('../models/pincodes')
+const Req = require('../models/req')
 
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const { default: axios } = require('axios');
@@ -142,8 +143,23 @@ router.get('/worker/viewissue', checkWorker, (req, res) => {
             res.send(err)
         }
         else {
-            console.log(decodedToken.id)
-            res.render('workerview')
+            const pin = decodedToken.id
+            const searchedpin = await Pin.findOne({ pincode: pin })
+            const nearbys = searchedpin.nearby
+            nearbys.push(searchedpin)
+
+            let filtered = []
+            for (i of nearbys) {
+                Req.find({ pincode: i }, async (err, data) => {
+                    if (err) {
+                        res.send(err)
+                    }
+                    else {
+                        filtered = [...filtered, data]
+                    }
+                })
+            }
+            res.render('workerview', {filtered})
         }
     })
 
