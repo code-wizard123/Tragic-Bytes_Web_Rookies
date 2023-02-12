@@ -150,6 +150,7 @@ router.post('/client/raisereq', async (req, res) => {
                 category: req.body.reqwk,
                 deatil: req.body.description,
                 client: rclient,
+                price: req.body.price,
                 pincode: rclient.cpincode,
                 isMatched : false
             })
