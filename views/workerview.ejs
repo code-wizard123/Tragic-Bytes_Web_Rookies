@@ -24,29 +24,36 @@
             </div>
         </div>
     </header>
-    <div id="container">
-        <div class="product-details">
-            <div class="form-floating mb-3">
-                <label for="floatingInput">Name:</label>
-                <input type="text" class="form-control" name="name" id="floatingInput" placeholder="Name"
-                    required><br><br>
+    <div class="main">
+
+        <% for(let i of filtered){ %>
+            <div id="container">
+                <div class="product-details">
+                    <div class="form-floating mb-3">
+                        <label for="floatingInput">Name:</label>
+                        <input type="text" class="form-control" name="name" id="floatingInput" placeholder="Name"
+                            value="<%= i.name %>" required><br><br>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="floatingInput">Category:</label>
+                        <input type="text" class="form-control" name="text" id="floatingInput" placeholder="Category"
+                            value="<%= i.category %>" required><br><br>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="floatingInput">Details:</label>
+                        <input type="text" class="form-control" name="details" id="floatingInput"
+                            placeholder="Details" value="<%= i.deatil %>" required>
+                    </div>
+                    <div class="control">
+                        <form>  
+                            <button class="btn">
+                                <span class="buy">Confirm</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-floating mb-3">
-                <label for="floatingInput">Category:</label>
-                <input type="text" class="form-control" name="text" id="floatingInput" placeholder="Category"
-                    required><br><br>
-            </div>
-            <div class="form-floating mb-3">
-                <label for="floatingInput">Details:</label>
-                <input type="number" class="form-control" name="details" id="floatingInput" placeholder="Details"
-                    required>
-            </div>
-            <div class="control">
-                <button class="btn">
-                    <span class="buy">YES</span>
-                </button>
-            </div>
-        </div>
+            <% } %>
     </div>
 </body>
 
