@@ -9,6 +9,7 @@ const router = Router();
 
 const Worker = require('../models/worker')
 const Req = require('../models/req')
+const Client = require('../models/client')
 
 const createToken = (id) => {
     return jwt.sign({ id }, 'apna secret', {
@@ -72,6 +73,30 @@ router.post('/admin/valid/worker/:id', checkAdmin, async(req,res) =>{
     rwk.isValid = !rwk.isValid
     await rwk.save()
     res.redirect('/admin/validate')
+})
+
+router.post('/admin/allclient' , checkAdmin, async(req,res) =>{
+    Client.find({},(err,data) =>{
+        if(err)
+        {
+            res.send(err)
+        }
+        else{
+            res.render('adminallclient',{data})
+        }
+    })
+})
+
+router.post('/admin/allworker', checkAdmin, async(req,res) =>{
+    Worker.find({},(err,data) =>{
+        if(err)
+        {
+            res.send(err)
+        }
+        else{
+            res.render('adminallworker',{data})
+        }
+    })
 })
 
 module.exports = router;
