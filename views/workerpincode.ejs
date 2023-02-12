@@ -26,7 +26,7 @@
             <div class="bahar">
                 <div class="left">
                     <h3 id="main-text">Please select your Preferred Region:</h3>
-                    <form action="/search" method="get" class="form-all" autocomplete="off">
+                    <form action="/worker/fixpin" method="post" class="form-all" autocomplete="off">
                         <table class="form-table">
                             <tbody>
                                 <tr>
@@ -37,7 +37,7 @@
                                             id="pincode" autocomplete="off"></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"><button class="cbtn" id="search">SEARCH</button></td>
+                                    <td colspan="2"><button class="cbtn" formaction="/search" method="get" id="search">SEARCH</button></td>
                                 </tr>
                                 <tr>
                                     <td><label id="area-label">AREA SELECTED</label></td>
@@ -46,7 +46,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"><button class="cbtn hidden" formaction="/client/update" method="get"
+                                    <td colspan="2"><button class="cbtn hidden" type="submit"
                                             id="confirmbtn">CONFIRM</button></td>
                                 </tr>
                             </tbody>

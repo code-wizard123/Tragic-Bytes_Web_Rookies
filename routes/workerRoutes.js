@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const {checkWorker} = require('../middleware/authMiddleware');
+const { checkWorker } = require('../middleware/authMiddleware');
 
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
@@ -39,14 +39,14 @@ router.post('/worker/signup', async (req, res) => {
     const hashp = await bcrypt.hash(pass, salt);
     try {
         const newWorker = new Worker({
-            name : req.body.name,
-            photoid : req.body.filelink,
-            number : req.body.number,
-            workexp : req.body.workexp,
+            name: req.body.name,
+            photoid: req.body.filelink,
+            number: req.body.number,
+            workexp: req.body.workexp,
             username: req.body.username,
             email: req.body.email,
             password: hashp,
-            isValid : false
+            isValid: false
         })
         await newWorker.save()
         res.redirect('/')
@@ -56,10 +56,10 @@ router.post('/worker/signup', async (req, res) => {
     }
 })
 
-router.get('/worker/pin/search', async (req, res) => {
+router.get('/worker/pin/search', checkWorker, async (req, res) => {
     const query = req.query;
     const area = await Pin.findOne({ pincode: query.pincode })
-    if(area){
+    if (area) {
         const geodata = await geocoder.forwardGeocode({
             query: `${area.region},Mumbai`,
             limit: 1
@@ -68,9 +68,9 @@ router.get('/worker/pin/search', async (req, res) => {
         const data = [a[0].geometry.coordinates, area.region]
         res.send(data)
     }
-    else{
+    else {
         res.redirect('/worker/pincode')
-    }    
+    }
 })
 
 router.post('/worker/login', async (req, res) => {
@@ -86,10 +86,10 @@ router.post('/worker/login', async (req, res) => {
             res.redirect('/worker/login')
         }
     }
-    else if(!user.isValid){
+    else if (!user.isValid) {
         res.redirect('/notvalid')
     }
-    else{
+    else {
         res.send("Worker doesnt exist please signup")
     }
 })
@@ -122,6 +122,31 @@ router.post('/worker/update', checkWorker, (req, res) => {
             res.redirect('/worker/update')
         }
     })
+})
+
+router.post('/worker/fixpin', checkWorker, (req, res) => {
+    if (req.body.pincode) {
+        const token2 = createToken(req.body.pincode)
+        res.cookie('pincode', token2, { maxage: 3 * 24 * 60 * 60 * 1000 })
+        res.redirect('/worker/viewissue')
+    }
+    else {
+        res.send("Not Authorized")
+    }
+})
+
+router.get('/worker/viewissue', checkWorker, (req, res) => {
+    const token2 = req.cookies.pincode
+    jwt.verify(token2, 'apna secret', async (err, decodedToken) => {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            console.log(decodedToken.id)
+            res.render('workerview')
+        }
+    })
+
 })
 
 module.exports = router;
