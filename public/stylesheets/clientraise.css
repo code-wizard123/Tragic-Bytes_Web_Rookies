@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #e8ebef;
+}
+a {
+  color: #149ddd;
+  text-decoration: none;
+  margin-top: 20px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+#logout {
+  border: none;
+  background: transparent;
+  color: red;
+  font-size: 30px;
+  padding: 16px 8px 6px 16px;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  transition: all ease-in-out 0.5s;
+  z-index: 9997;
+  transition: all 0.5s;
+  padding: 0 15px;
+  background: #040b14;
+  overflow-y: auto;
+}
+#header .profile h1 {
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+  margin-top: 80px;
+}
+
+#header .profile h3 {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  -moz-text-align-last: center;
+  text-align-last: center;
+  font-family: "Poppins", sans-serif;
+  margin-top: 20px;
+}
+
+.sidenav {
+  margin-top: 10rem;
+  height: 100%;
+  width: 300px;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow: hidden;
+}
+#header::-webkit-scrollbar {
+  display: none;
+}
+.sidenav a {
+  padding: 16px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  color: #fff;
+  display: block;
+  /* margin-top: 100px; */
+}
+.sidenav a:hover {
+  color: #37b3ed;
+}
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.box {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% - 300px);
+  justify-content: center;
+  margin-left: 300px;
+}
+
+.divbtn {
+  object-fit: contain;
+  padding: 20px;
+  width: 250px;
+  height: 200px;
+  margin-left: 50px;
+  display: grid;
+  margin-top: 30px;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.blackdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px;
+  border-style: solid;
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+.blackdiv:hover {
+  transition: ease-in 200ms;
+  background-color: rgba(12, 165, 230, 0.8);
+  color: rgb(5, 0, 0);
+  border-radius: 15px;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 20px;
+  margin-top: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.out {
+  margin-left: 300px;
+}
+.subbtn {
+  margin-left: 750px;
+  height: 70px;
+  font-size: 30px;
+  width: 150px;
+  color: black;
+  background-color: #149ddd;
+  border-color: #149ddd;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.subbtn:hover {
+  background-color: black;
+  color: white;
+}
+
+.hidden{
+  display: none;
+}
+
+.req-div{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.desc-div{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.req-div input{
+  font-size: 30px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 30%;
+}
+
+.desc-name{
+  width: 30%;
+  text-align: right;
+}
+
+.desc-input{
+  width: 70%;
+}
+
+.container label{
+  margin-right: 25px;
+  color: black;
+  font-size: 30px;
+}
+
+#description{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 80%;
+  font-size: 30px;
+}
+
+#price{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 80%;
+  font-size: 30px;
+}
